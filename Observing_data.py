@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import matplotlib as plt
 
@@ -17,3 +18,12 @@ this to match other columns
 df.rename(columns={'oldbalanceOrg' : 'oldbalanceOrig'}, inplace=True)
 print("\n The modified column names are:")
 print(df.columns.tolist())
+
+print("\n Information on columns:")
+print(df.info())
+
+isFraud = df["isFraud"].tolist()
+print("Number of fraud cases are %d out of %d" %(isFraud.count(1), len(df['isFraud'])))
+
+isFlaggedFraud = df["isFlaggedFraud"].tolist()
+print("Number of fraud detected are %d out of %d" %(isFlaggedFraud.count(1), len(df['isFlaggedFraud'])))
